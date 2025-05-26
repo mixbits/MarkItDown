@@ -14,12 +14,6 @@ A powerful, production-ready web application for converting various document for
 
 ## System Requirements
 
-### Hardware Requirements
-- **CPU**: 2+ cores recommended (1 core minimum)
-- **RAM**: 2GB minimum, 4GB+ recommended (OCR operations are memory-intensive)
-- **Storage**: 5GB free space minimum (for application, models, and temporary files)
-- **Network**: Internet connection for package installation and Cloudflare Tunnel
-
 ### Software Requirements
 - **Operating System**: Linux with systemd support
   - Synology DSM 7.0+
