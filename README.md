@@ -368,16 +368,6 @@ sudo chmod -R 755 .
 sudo chmod 777 models/easyocr sessions tmp logs
 ```
 
-#### Port Already in Use
-```bash
-# Check what's using the port
-sudo netstat -tlnp | grep :8040
-sudo lsof -i :8040
-
-# Kill process using the port (if safe to do so)
-sudo kill -9 PID_NUMBER
-```
-
 #### Service Won't Start
 ```bash
 # Check service logs for errors
@@ -444,14 +434,6 @@ The application uses these key environment variables:
 - `TMPDIR`: Temporary file directory
 - `OPENCV_IO_ENABLE_OPENEXR`: Disabled for compatibility
 - `DISPLAY`: Empty for headless mode
-
-## Troubleshooting
-
-For issues and questions:
-1. Check the troubleshooting section above
-2. Review the logs: `tail -f /your/project/path/markitdown/logs/markitdown.log`
-3. Test health endpoint: `curl http://localhost:YOUR_PORT/health`
-4. Check service status: `sudo systemctl status YOUR_APP_NAME.service`
 
 ## License
 
