@@ -1,0 +1,35 @@
+# MarkItDown Web Application - Systemd Service Configuration
+# Place this file in /etc/systemd/system/ on your host machine
+
+[Unit]
+Description=MarkItDown Web Application - Document Conversion Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=http
+Group=http
+WorkingDirectory=PROJECT_DIR_PLACEHOLDER
+Environment="PATH=PROJECT_DIR_PLACEHOLDER/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="VIRTUAL_ENV=PROJECT_DIR_PLACEHOLDER/venv"
+Environment="PYTHONPATH=PROJECT_DIR_PLACEHOLDER"
+Environment="PYTHONUNBUFFERED=1"
+Environment="HOME=PROJECT_DIR_PLACEHOLDER"
+ExecStart=PROJECT_DIR_PLACEHOLDER/venv/bin/python app.py
+Restart=always
+RestartSec=10
+StandardOutput=append:PROJECT_DIR_PLACEHOLDER/logs/markitdown.log
+StandardError=append:PROJECT_DIR_PLACEHOLDER/logs/markitdown.log
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=PROJECT_DIR_PLACEHOLDER
+
+[Install]
+WantedBy=multi-user.target
+
+# NOTE: This is a template file. PROJECT_DIR_PLACEHOLDER will be replaced
+# with the actual project directory path during deployment. 

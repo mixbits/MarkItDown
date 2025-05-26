@@ -1,0 +1,63 @@
+# Cloudflare Tunnel Configuration Template for MarkItDown Web Application
+# This file will be automatically generated during deployment with your specific values
+
+tunnel: YOUR_TUNNEL_ID_HERE
+credentials-file: /path/to/your/project/markitdown/tunnel-credentials.json
+
+# Ingress Rules Template
+ingress:
+  # Main application route
+  - hostname: markitdown.YOUR_DOMAIN_HERE
+    service: http://localhost:YOUR_PORT_HERE
+    originRequest:
+      connectTimeout: 30s
+      tlsTimeout: 30s
+      tcpKeepAlive: 30s
+      keepAliveConnections: 10
+      keepAliveTimeout: 90s
+      httpHostHeader: markitdown.YOUR_DOMAIN_HERE
+      disableChunkedEncoding: false
+      noTLSVerify: true
+  
+  # Health check endpoint
+  - hostname: health.markitdown.YOUR_DOMAIN_HERE
+    service: http://localhost:YOUR_PORT_HERE/health
+    originRequest:
+      connectTimeout: 10s
+      tlsTimeout: 10s
+  
+  # API endpoints
+  - hostname: api.markitdown.YOUR_DOMAIN_HERE
+    service: http://localhost:YOUR_PORT_HERE
+    originRequest:
+      connectTimeout: 30s
+      tlsTimeout: 30s
+      httpHostHeader: api.markitdown.YOUR_DOMAIN_HERE
+  
+  # Catch-all rule (required)
+  - service: http_status:404
+
+# Tunnel Options
+warp-routing:
+  enabled: false
+
+# Logging Configuration
+loglevel: info
+logfile: /path/to/your/project/markitdown/logs/cloudflared.log
+
+# Metrics (optional)
+metrics: localhost:8081
+
+# Auto-update (optional)
+autoupdate-freq: 24h
+
+# Performance settings
+retries: 3
+grace-period: 30s
+
+# NOTE: This is a template file. The actual configuration will be generated
+# automatically when you run the deployment script with your specific:
+# - Domain name
+# - Tunnel ID
+# - Project directory path
+# - Local port (if different from default) 
