@@ -107,31 +107,6 @@ The deployment script will ask for the following information:
    - Used for service file: `{name}.service`
    - Only letters, numbers, hyphens, underscores allowed
 
-#### Example Configuration Session:
-```
-========================================
-MarkItDown Web Application - Deployment Setup
-========================================
-
-Enter base directory path [/volume1/web]: /volume1/web
-Enter your domain name: mydomain.com
-Enter port number [8040]: 8040
-Enter application name [markitdown]: markitdown
-
-Configuration Summary:
-=====================
-Base Directory: /your/project/directory
-Project Directory: /your/project/directory
-Domain: mydomain.com
-Port: 8040
-App Name: markitdown
-Main URL: https://markitdown.mydomain.com
-Health URL: https://health.markitdown.mydomain.com
-API URL: https://api.markitdown.mydomain.com
-
-Continue with this configuration? (y/N): y
-```
-
 ### Step 4: Cloudflare Tunnel Setup (Optional but Recommended)
 
 #### 4.1: Create Cloudflare Tunnel via Dashboard
@@ -183,7 +158,7 @@ cd /your/filepath/here/markitdown  # Use your configured path
 MarkItDown Web Application - Tunnel Setup
 ========================================
 
-Enter project directory path [/volume1/web/markitdown]: /volume1/web/markitdown
+Enter project directory path [/your/project/path/markitdown]: /your/project/path/markitdown
 Enter your domain name: mydomain.com
 Enter your Cloudflare tunnel token: eyJhIjoiYWJjZGVmZ2hpams...
 Enter your tunnel ID (UUID format): 12345678-1234-1234-1234-123456789abc
@@ -192,7 +167,7 @@ Enter local port [8040]: 8040
 
 Configuration Summary:
 =====================
-Project Directory: /volume1/web/markitdown
+Project Directory: /your/project/path/markitdown
 Domain: mydomain.com
 Tunnel Name: markitdown-tunnel
 Tunnel ID: 12345678-1234-1234-1234-123456789abc
